@@ -2,6 +2,7 @@ import React, {ReactNode } from 'react'
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: "connect with Boom",
@@ -27,6 +28,8 @@ const HomeLayout = ({children}: {children: ReactNode}) => {
                 </div>
             </section> 
         </div>
+
+        <Footer/>
     </main>
   )
 }
