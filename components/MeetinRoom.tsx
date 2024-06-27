@@ -11,6 +11,7 @@ import { LayoutList, Users } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import EndCallButton from './EndCallButton'
 import Loader from './Loader'
+import ShareMeeting from './ShareMeeting'
   
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right'
@@ -42,7 +43,7 @@ const MeetinRoom = () => {
             <div className='flex size-full max-w-[1000px] items-center'>
                 <CallLayout/>
             </div>
-            <div className={cn('h-[calc(100vh-86px)] hidden ml-2 min-w-[250px]', {'show-block': showParticipants})}>
+            <div className={cn('h-[calc(100vh-86px)] hidden ml-2 min-w-[200px] absolute', {'show-block': showParticipants})}>
                 <CallParticipantsList onClose={() => setShowParticipants(false)}/>
             </div>
         </div>
@@ -73,7 +74,9 @@ const MeetinRoom = () => {
                     <Users size={20} className='text-white'/>
                 </div>
             </button>
+            <ShareMeeting/>
             {!isPersonalRoom && <EndCallButton/> }
+            
 
         </div>
     </section>
