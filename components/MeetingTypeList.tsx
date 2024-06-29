@@ -29,6 +29,11 @@ const MeetingTypeList = () => {
   const client = useStreamVideoClient();
   const { user } = useUser();
   const { toast } = useToast();
+  var myLink = values.link;
+
+  if (!myLink.startsWith('http://') && !myLink.startsWith('https://')) {
+    myLink = 'http://' + myLink;
+  }
 
   const createMeeting = async () => {
     if (!client || !user) return;
@@ -165,7 +170,7 @@ const MeetingTypeList = () => {
         title="Enter the link here"
         className="text-center"
         buttonText="Join Meeting"
-        handleClick={() => window.location.href = values.link}
+        handleClick={() => router.push(myLink)}
       >
         <Input
           className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
